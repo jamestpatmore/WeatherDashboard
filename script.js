@@ -16,6 +16,7 @@ let searchForm = document.querySelector('#search-form');
 let searchInput = document.querySelector('#search-input');
 let todayContainer = document.querySelector('#today');
 let forecastContainer = document.querySelector('#forecast');
+let searchHistoryContainer = document.querySelector('#history');
 //location
 let heading = document.querySelector('#currentLocation');
 //icons 
@@ -141,6 +142,55 @@ function handleSearchFormSubmit(e) {
     searchInput.value = '';
   
 };
+
+function renderSearchHistory() {
+  searchHistoryContainer.innerHTML = '';
+
+  // Start at end of history array and count down to show the most recent at the top.
+  for (var i = searchHistory.length - 1; i >= 0; i--) {
+    var btn = document.createElement('button');
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('aria-controls', 'today forecast');
+    btn.classList.add('history-btn', 'btn-history');
+
+    // `data-search` allows access to city name when click handler is invoked
+    btn.setAttribute('data-search', searchHistory[i]);
+    btn.textContent = searchHistory[i];
+    searchHistoryContainer.append(btn);
+  }
+}
+
+// Function to update history in local storage then updates displayed history.
+function appendToHistory(search) {
+  // If there is no search term return the function
+  if (searchHistory.indexOf(search) !== -1) {
+    return;
+  }
+  searchHistory.push(search);
+
+  localStorage.setItem('search-history', JSON.stringify(searchHistory));
+  renderSearchHistory();
+}
+
+// Function to get search history from local storage
+function initSearchHistory() {
+  var storedHistory = localStorage.getItem('search-history');
+  if (storedHistory) {
+    searchHistory = JSON.parse(storedHistory);
+  }
+  renderSearchHistory();
+}
+
+function handleSearchHistoryClick(e) {
+  // Don't do search if current elements is not a search history button
+  if (!e.target.matches('.btn-history')) {
+    return;
+  }
+
+  var btn = e.target;
+  var search = btn.getAttribute('data-search');
+  fetchCoords(search);
+}
 
 searchForm.addEventListener('submit', handleSearchFormSubmit);
 
