@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
+    rel="stylesheet"
+    />
+    
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">Under1Umbrella<i class="fa-solid fa-umbrella"></i></a>
+          <form class="d-flex input-group w-auto" id="search-form">
+            <input
+              type="search"
+              class="form-control rounded"
+              placeholder="Search for a City...."
+              aria-label="Search"
+              aria-describedby="search-addon"
+              id="search-input"
+            />
+            <span class="input-group-text border-0" id="search-addon">
+              <i class="fas fa-search"></i>
+            </span>
+          </form>
+        </div>
+    </nav>
+    <section class="vh-100" style="background-color: #000000;">
+        <div class="container py-5 h-100" id="today">
+      
+          <div class="row d-flex justify-content-center align-items-center h-100" style="color: #282828;">
+            <div class="col-md-9 col-lg-7 col-xl-5">
+      
+              <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
+                <div class="card-body p-4">
+      
+                  <div id="demo1" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators mb-0">
+                      <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                      <li data-target="#demo1" data-slide-to="1"></li>
+                      <li data-target="#demo1" data-slide-to="2"></li>
+                    </ul>
+                    <!-- Carousel inner -->
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="d-flex justify-content-between mb-4 pb-2">
+                          <div>
+                            <h2 class="display-2" id="currentTemp"><strong>23°F</strong></h2>
+                            <p class="text-muted mb-0" id="currentLocation">City</p>
+                          </br>
+                            <p id="currentDate"> Date:</p>
+                            <p id="currentHumidity"> Humidity: </p>
+                            <p id="currentWind"> Wind Speed: </p>
+                            <p id="currentUV"> UV Index: </p>
+                          </div>
+                          <div>
+                            <img 
+                              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu3.webp"
+                              id="currentWeatherIcon"
+                              width="150px">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+                </div>
+              </div>
+      
+              
+      
+              <div class="card" style="border-radius: 25px;">
+                <div class="card-body p-4">
+      
+                  <div id="demo3" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators mb-0">
+                      <li data-target="#demo3" data-slide-to="0"></li>
+                      <li data-target="#demo3" data-slide-to="1"></li>
+                      <li data-target="#demo3" data-slide-to="2" class="active"></li>
+                    </ul>
+                    <!-- Carousel inner -->
+                    <div class="carousel-inner" id="forecast">
+                      <div class="carousel-item active">
+                        <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                          <div class="flex-column">
+                            <p class="small" id="day-1-temp"><strong>21°C</strong></p>
+                            <img class="fa-2x mb-3" style="color: #ddd;" id="day-1-icon" src=""></img>
+                            <p class="mb-0" id="fDate"><strong>Mon</strong></p>
+                          </div>
+                          <div class="flex-column">
+                            <p class="small" id="day-2-temp"><strong>20°C</strong></p>
+                            <img class="fa-2x mb-3" style="color: #ddd;" id="day-2-icon"></img>
+                            <p class="mb-0" id="fDate2"><strong>Tue</strong></p>
+                          </div>
+                          <div class="flex-column">
+                            <p class="small" id="day-3-temp"><strong>16°C</strong></p>
+                            <img class="fa-2x mb-3" style="color: #ddd;" id="day-3-icon"></img>
+                            <p class="mb-0" id="fDate3"><strong>Wed</strong></p>
+                          </div>
+                          <div class="flex-column">
+                            <p class="small" id="day-4-temp"><strong>17°C</strong></p>
+                            <img class="fa-2x mb-3" style="color: #ddd;" id="day-4-icon"></img>
+                            <p class="mb-0" id="fDate4"><strong>Thu</strong></p>
+                          </div>
+                          <div class="flex-column">
+                            <p class="small" id="day-5-temp"><strong>18°C</strong></p>
+                            <img class="fa-2x mb-3" style="color: #ddd;" id="day-5-icon"></img>
+                            <p class="mb-0" id="fDate5"><strong>Fri</strong></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+                </div>
+              </div>
+      
+            </div>
+          </div>
+      
+        </div>
+      </section>
+      <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"
+      integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg=="
+      crossorigin="anonymous"
+    ></script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/utc.min.js" 
+      integrity="sha512-m00bfmYnAl3plEBlQfeQUhw/U2uvmw29V2+jxSWpAjankMWS+zAsjezbKWDEJNXqWq9o9qQZSOiA2RKDpa4D5w==" 
+      crossorigin="anonymous"
+    ></script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/timezone.min.js" 
+      integrity="sha512-pslqxxHAYPCxaSeFSmXXxDkLejD5dbFVC66aiVq0z4v7VTJBU+wqcG1OpNh4p3MjS2D6NCwz/H2QmSc7dXxryg==" 
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+    <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js">
+    </script>
+</body>
+</html>
